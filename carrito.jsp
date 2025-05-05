@@ -52,7 +52,7 @@
         			<tr>
         				<td>${producto.nombre}</td>
         				<td>${producto.cantidad}</td>
-        				<td>${producto.precioTotal}</td>
+        				<td>${producto.totalFormateado}</td>
         				<td> <a href="tienda?action=delete&index=${status.index}">Eliminar</a> </td>
         			</tr>
         		</c:forEach>	

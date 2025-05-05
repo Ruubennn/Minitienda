@@ -15,9 +15,21 @@ public class Carrito implements Serializable {
 		return this.productos;
 	}
 	
-	public void addProducto(Producto p){
-		productos.add(p);
+	public void addProducto(Producto p) {
+    		boolean encontrado = false;
+    		for (Producto prod : productos) {
+        		if (prod.getNombre().equals(p.getNombre())) {
+            			// Si ya existe, aumenta la cantidad
+			        prod.setCantidad(prod.getCantidad() + p.getCantidad());
+            			encontrado = true;
+            			break;
+        		}
+    		}
+	    	if (!encontrado) {
+        		productos.add(p);
+   	 	}
 	}
+
 	
 	public void removeProducto(int indice){
 		if(indice >= 0 && indice < productos.size()){
@@ -36,4 +48,12 @@ public class Carrito implements Serializable {
 	public boolean isEmpty(){
 		return productos.isEmpty();
 	}
+	
+	public String getTotalFormateado() {
+    		return String.format("%.2f", getTotal());
+	}
+	
+	
+
+
 }

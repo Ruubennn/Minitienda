@@ -35,14 +35,14 @@
 							out.print(total);
 						--%>
 						
-						${carrito.total} <!-- FASE II -->
+						${carrito.totalFormateado}  <!-- FASE II -->
 					</td>
 				</tr>
 			</table>
 		</div>
 		
 		<div style='margin-top: 10px; text-align: center;'>
-			<a href='index.html' style='color: purple; font-weight: bold;'>Pagar y volver a la página principal</a>
+			<a href='index.html' style='color: purple; font-weight: bold;'>Pagar y volver a la pagina principal</a>
 		</div>
 	
 </body>

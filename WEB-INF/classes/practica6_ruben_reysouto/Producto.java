@@ -23,5 +23,13 @@ public class Producto {
     public int getCantidad() {
     	return this.cantidad;
     }
+    
+    public String getTotalFormateado() {
+    		return String.format("%.2f", getPrecioTotal());
+	}
+	
+	public void setCantidad(int cantidad) {
+    		this.cantidad = cantidad;
+	}
 }
 
