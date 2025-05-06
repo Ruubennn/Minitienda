@@ -6,69 +6,103 @@
 <%@page import="practica6_ruben_reysouto.Producto" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!DOCTYPE HTML>
 <html>
 <head>
-	<title>Carrito de la compra</title>
+  <title>Carrito de la compra - Modo Disco</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(270deg, #ff00ff, #0000ff, #00ffff);
+      background-size: 600% 600%;
+      animation: discoBackground 10s ease infinite;
+      color: #fff;
+      text-align: center;
+    }
+    @keyframes discoBackground {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    h2 {
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      margin-top: 20px;
+    }
+    table {
+      background-color: #222;
+      border-collapse: collapse;
+      margin: 20px auto;
+      width: 80%;
+      box-shadow: 0 0 20px #00ffff;
+    }
+    th, td {
+      border: 1px solid #00ffff;
+      padding: 15px;
+      color: #0ff;
+    }
+    th {
+      background-color: #333;
+      text-shadow: 0 0 10px #ff00ff;
+    }
+    a {
+      color: #ff00ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      color: #00ffff;
+    }
+    .button-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .disco-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      margin: 0 20px;
+      transition: transform 0.3s ease;
+    }
+    .disco-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
+<body>
+  <h2> Carrito de la compra</h2>
 
-<body bgcolor="#FDF5E6">
-	<h2 style='text-align: center; font-weight: bold;'>Carrito de la compra</h2>
-	
-	<div style='display: flex; justify-content: center;'>
-		<table border='1' style='background-color: white; border-collapse: collapse;'>
-        		<tr>
-        			<th>TITULO DEL CD</th>
-        			<th>Cantidad</th>
-        			<th>Importe</th>
-        			<th>Accion</th>
-        		</tr>
-        		
-        		<!--		FASE I
-        		<%--
-        			List<Producto> carrito = (List<Producto>) session.getAttribute("carrito");
-        			double total = 0;
-        			
-        			for(int i=0; i < carrito.size(); i++){
-        				Producto p = carrito.get(i);
-        				total += p.getPrecioTotal();
-        			
-        		%>
-        		
-        		<tr>
-        			<td> <%= p.getNombre() %> </td>
-        			<td> <%= p.getCantidad() %></td>
-        			<td> <%= p.getPrecioTotal() %></td>
-        			<td> <a href="tienda?action=delete&index=<%= i %>">Eliminar</a> </td>
-        		</tr>
-        		
-        		<%
-        			}
-        		--%>
-        		-->
-        		
-        		<!-- FASE II -->
-        		<c:forEach var="producto" items="${carrito.productos}" varStatus="status">
-        			<tr>
-        				<td>${producto.nombre}</td>
-        				<td>${producto.cantidad}</td>
-        				<td>${producto.totalFormateado}</td>
-        				<td> <a href="tienda?action=delete&index=${status.index}">Eliminar</a> </td>
-        			</tr>
-        		</c:forEach>	
-        		
-        </table>
-	</div>
-	
-	<div style='text-align: center; margin-top: 30px;'>
-		<form action='index.html' method='get' style='display: inline;'>
-			<input type='submit' value='' style='background: url("imagenes/carrito.png") no-repeat center; background-size: contain; width: 100px; height: 100px; border: none;' title='Seguir comprando'>
-		</form>
-		
-		<form action='tienda' method='post' style='display: inline; margin-left: 20px;'>
-			<input type='hidden' name='action' value='pagar'>
-			<input type='submit' value='' style='background: url("imagenes/caja.png") no-repeat center; background-size: contain; width: 100px; height: 100px; border: none;' title='Pagar'>
-		</form>
-	</div>
+  <div>
+    <table>
+      <tr>
+        <th>TITULO DEL CD</th>
+        <th>Cantidad</th>
+        <th>Importe</th>
+        <th>Accion</th>
+      </tr>
+      <c:forEach var="producto" items="${carrito.productos}" varStatus="status">
+        <tr>
+          <td>${producto.nombre}</td>
+          <td>${producto.cantidad}</td>
+          <td>${producto.totalFormateado}</td>
+          <td><a href="tienda?action=delete&index=${status.index}">Eliminar</a></td>
+        </tr>
+      </c:forEach>
+    </table>
+  </div>
+
+  <div class="button-container">
+    <form action='index.html' method='get' style='display: inline;'>
+      <button type='submit' class='disco-button' style='background-image: url("imagenes/carrito.png");' title='Seguir comprando'></button>
+    </form>
+    <form action='tienda' method='post' style='display: inline;'>
+      <input type='hidden' name='action' value='pagar'>
+      <button type='submit' class='disco-button' style='background-image: url("imagenes/caja.png");' title='Pagar'></button>
+    </form>
+  </div>
 </body>
 </html>
