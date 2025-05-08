@@ -5,6 +5,8 @@
 <%@page session="true" %>
 <%@page import="practica6_ruben_reysouto.Producto" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 
 <!DOCTYPE HTML>
 <html>
