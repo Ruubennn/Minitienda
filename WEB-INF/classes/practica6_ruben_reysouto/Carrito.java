@@ -53,7 +53,4 @@ public class Carrito implements Serializable {
     		return String.format("%.2f", getTotal());
 	}
 	
-	
-
-
 }

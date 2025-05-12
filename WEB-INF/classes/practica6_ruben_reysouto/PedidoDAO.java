@@ -1,9 +1,7 @@
 package practica6_ruben_reysouto;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 public class PedidoDAO {
     public static void insertarPedido(int usuarioId, double importeTotal){

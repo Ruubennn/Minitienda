@@ -129,10 +129,6 @@
     </table>
   </div>
 
-  <!--<div>
-    <a href='index.html'>Pagar y volver a la pagina principal</a>
-  </div> -->
-
   <form action="tienda" method="post">
     <input type="hidden" name="action" value="confirmar">
     

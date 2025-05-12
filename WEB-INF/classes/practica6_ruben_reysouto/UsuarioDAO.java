@@ -1,7 +1,6 @@
 package practica6_ruben_reysouto;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -40,19 +39,5 @@ public class UsuarioDAO {
             e.printStackTrace();
         }
         return userId;
-    }
-
-    /*public static void main(String[] args) {
-        try {
-            int userId = insertarUsuario("Nombre de prueba", "correo@prueba.com", "1234");
-            if (userId != -1) {
-                System.out.println("Usuario insertado con ID: " + userId);
-            } else {
-                System.out.println("No se pudo insertar el usuario.");
-            }
-        } catch (Exception e) {
-            System.err.println("Error al insertar usuario: " + e.getMessage());
-        }
-    } */
-    
+    }    
 }
