@@ -62,7 +62,7 @@ public class Helper {
             String contrasena = request.getParameter("contrasena");
 
 
-            carrito = (Carrito) sesion.getAttribute("carrito");
+            //carrito = (Carrito) sesion.getAttribute("carrito");
             int userId = UsuarioDAO.obtenerUsuario(correo);
 
             if (userId == -1) {
@@ -94,7 +94,7 @@ public class Helper {
             String tipoTarjeta = request.getParameter("tipoTarjeta");
             String numeroTarjeta = request.getParameter("numeroTarjeta");
 
-            carrito = (Carrito) sesion.getAttribute("carrito");
+            //carrito = (Carrito) sesion.getAttribute("carrito");
 
             int userIdNuevo = UsuarioDAO.insertarUsuario(nombreNuevo, correoNuevo, contrasenaNueva);
             TarjetaDAO.insertarTarjeta(userIdNuevo, tipoTarjeta, numeroTarjeta);
